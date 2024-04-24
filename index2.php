@@ -1,21 +1,18 @@
-<?php 
+<?php
+
+    require_once "funciones.php" ;
 
     const API_URL = "https://whenisthenextmcufilm.com/api" ;
-    $result = file_get_contents(API_URL) ;
-    $data = json_decode($result, true) ;
+    $data = getData(API_URL) ;
+    $untilMessage = getMessageuntil($data["days_until"]) ;
+
+   /*  echo "." ; */
 ?>
 
 
     <!DOCTYPE html>
     <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="estilos.css">
-        <title> Cual es la proxima pelicula de marvel ? </title>
-        <!-- pico css  -->
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css"/> -->
-    </head>
+    <?php require "head.php"; ?> 
 
     <main> 
         <!-- <pre style="font-size: 12px; overflow: scroll; height: 300px">
@@ -28,7 +25,7 @@
         </section>
 
         <hgroup>    
-            <h3> <?= $data["title"]; ?> Se estrena en <?= $data["days_until"] ; ?> dias </h3>
+            <h3> <?= $data["title"]; ?> <?= $untilMessage ; ?></h3>
             <p> Fecha de estreno: <?= $data["release_date"]; ?> </p>
             <p> La siguiente es: <?= $data["following_production"]["title"]; ?> </p>
         </hgroup>

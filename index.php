@@ -1,6 +1,8 @@
 <?php
 
-    echo "." ;
+    // Declaracion de tipos en parametros, retornos dato que no sabia. 
+    // declare(strict_types=1) ;
+    // global $variable <-- usar una variable dentro de todos los ambitos
 
     const API_URL = "https://whenisthenextmcufilm.com/api" ;
     # inicializar una nueva sesion de cURL -> ch = curl handle 
