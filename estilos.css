@@ -1,0 +1,30 @@
+    
+    body {
+        display: grid;
+        place-content: center;
+        background-color: lightsteelblue;
+    }
+
+    h1 {
+        color: lightseagreen;
+        background-color: lightslategray;
+        display: grid;
+        place-content: center;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    img {
+        margin: 0 auto;
+    }
+
+    hgroup {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        text-align: center;
+    }
