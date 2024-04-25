@@ -1,8 +1,19 @@
-    
+<style>
+
+    :root {
+        color-scheme: light dark ;
+    }
+
     body {
         display: grid;
         place-content: center;
-        background-color: lightsteelblue;
+        background-color: #001f3d  ;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+        text-align: center;
     }
 
     h1 {
@@ -12,9 +23,10 @@
         place-content: center;
     }
 
-    section {
+    hgroup {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: center; 
         text-align: center;
     }
 
@@ -22,9 +34,4 @@
         margin: 0 auto;
     }
 
-    hgroup {
-        display: flex;
-        flex-direction: column;
-        /* justify-content: center; */
-        text-align: center;
-    }
+</style>
