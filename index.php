@@ -13,7 +13,7 @@
     $nextMovieData = $nextMovie -> getData() ;
 ?>
 
-    <?php renderTemplate('Head', ['title' => $nextMovieData['title']]); ?> 
+    <?php renderTemplate('header', ['title' => $nextMovieData['title']]); ?> 
     <!-- Unimos el array $nextMovieData con el mensaje que retorna la funcion -->
     <?php renderTemplate("main", array_merge($nextMovieData, ["untilMessage" => $nextMovie -> getMessageUntil()])); ?>
     <?php renderTemplate("estilos"); ?>
