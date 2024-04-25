@@ -1,39 +1,19 @@
 <?php
 
+    require_once "consts.php" ;
     require_once "funciones.php" ;
+    require "clases/NextMovie.php" ;
 
-    const API_URL = "https://whenisthenextmcufilm.com/api" ;
-    $data = getData(API_URL) ;
-    $untilMessage = getMessageuntil($data["days_until"]) ;
+    /*  Sacabamos los datos en variables ahora se saca con la clase NextMovie
+        $data = getData(API_URL) ;
+        $until_message = getMessageUntil($data["days_until"]) ; 
+    */
 
-   /*  echo "." ; */
+    $nextMovie = NextMovie::fetchAndCreateMovie(API_URL) ;
+    $nextMovieData = $nextMovie -> getData() ;
 ?>
 
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <?php require "head.php"; ?> 
-
-    <main> 
-        <!-- <pre style="font-size: 12px; overflow: scroll; height: 300px">
-            <?php var_dump($data) ;  // mostramos los datos ?>
-        </pre> -->
-
-        <section> 
-            <img src="<?= $data["poster_url"] ; ?>" width="300" alt="Poster de <?= $data["title"] ; ?>"
-            style="border-radius: 16px" />
-        </section>
-
-        <hgroup>    
-            <h3> <?= $data["title"]; ?> <?= $untilMessage ; ?></h3>
-            <p> Fecha de estreno: <?= $data["release_date"]; ?> </p>
-            <p> La siguiente es: <?= $data["following_production"]["title"]; ?> </p>
-        </hgroup>
-    </main> 
-
-
-
-    <body>
-        <h1> PROXIMO ESTRENO </h1>
-    </body>
-    </html>
+    <?php renderTemplate('head', ['title' => $nextMovieData['title']]); ?> 
+    <!-- Unimos el array $nextMovieData con el mensaje que retorna la funcion -->
+    <?php renderTemplate("main", array_merge($nextMovieData, ["untilMessage" => $nextMovie -> getMessageUntil()])); ?>
+    <?php renderTemplate("estilos"); ?>
