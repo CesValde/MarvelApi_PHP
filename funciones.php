@@ -20,7 +20,7 @@
             $days == 0 => "Dia de cine 😎", 
             $days == 1 => "Un dia para el estreno! ", 
             $days < 7 => "Una semanaaa! ", 
-            $days < 30 => "Este mes vuelve deadpool 😈",
+            $days < 30 => "Este mes vuelve Captain 😈",
             default => "$days dias hasta el estreno 🤬",
         } ;
     }
@@ -29,7 +29,7 @@
     <script>
         function actualizarCuentaRegresiva() {
             // Fecha y hora objetivo para la cuenta regresiva (en formato ISO 8601)
-            var fechaObjetivo = new Date("2024-07-24T00:00:00");
+            var fechaObjetivo = new Date("2025-02-12T00:00:00");
             var fechaActual = new Date();
             var diferencia = fechaObjetivo - fechaActual;
             
